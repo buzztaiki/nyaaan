@@ -1,7 +1,7 @@
 use std::fmt::Display;
 
 #[derive(Debug, PartialEq, Eq)]
-struct Nyaaan {
+pub struct Nyaaan {
     prefix: String,
     infix: char,
     suffix: String,
