@@ -104,7 +104,10 @@ mod tests {
 
     #[test]
     fn test_from_nyan() {
-        assert_eq!(Nyaaan::from_nyan("", ""), Err("nya!".to_string()));
+        assert_eq!(
+            Nyaaan::from_nyan("", ""),
+            Err(Error::Nya("nya!".to_string()))
+        );
         assert_eq!(Nyaaan::from_nyan("n", ""), Ok(Nyaaan::new("", 'n', "")));
         assert_eq!(Nyaaan::from_nyan("nya", ""), Ok(Nyaaan::new("ny", 'a', "")));
         assert_eq!(
