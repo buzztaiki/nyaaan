@@ -1,5 +1,7 @@
 use std::fmt::Display;
 
+use crate::errors::Error;
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct Nyaaan {
     prefix: String,
@@ -16,10 +18,10 @@ impl Nyaaan {
         }
     }
 
-    pub fn from_nyan(nya: &str, n: &str) -> Result<Self, String> {
+    pub fn from_nyan(nya: &str, n: &str) -> Result<Self, Error> {
         let chars = nya.chars().collect::<Vec<char>>();
         if chars.is_empty() {
-            return Err("nya!".to_string());
+            return Err(Error::Nya("nya!".to_string()));
         }
         let prefix = &chars[0..chars.len() - 1].iter().collect::<String>();
         let infix = chars[chars.len() - 1];
